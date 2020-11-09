@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function My() {
+            this.age = 30
+
+            this.fn1_1 = () => {
+                console.log('fn1_1')
+                console.log(this)
+            }
+            this.fn1_2 = function() {
+                console.log('fn1_2')
+                console.log(this)
+            }
+
+            this.fn2_1 = function() {
+                return function() {
+                    console.log('fn2_1')
+                    console.log(this) // 여기서 this는 window 이다
+                }
+            }
+            this.fn2_2 = function() {
+                return () => {
+                    console.log('fn2_2')
+                    console.log(this)
+                }
+            }
+        }
+        // new My()
+        var obj = new My()
+        console.log('obj.age : ' + obj.age)
+        console.log('window.age : ' + window.age)
+
+        obj.fn1_1()
+        obj.fn1_2()
+        var mtd1 = obj.fn2_1()
+        var mtd2 = obj.fn2_2()
+
+        mtd1()
+        mtd2()
+    </script>
+</body>
+</html>

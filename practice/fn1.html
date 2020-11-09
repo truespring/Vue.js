@@ -9,16 +9,16 @@
     <script>
         // 동적 프로토타입 기반 객체 지향 언어
         // 자바스크립트에서 객체 만드는 방법
-        function myFn() { 
+        function MyFn() { 
             this.name = '웹툰' 
             this.method2 = function() {
                 console.log(this.name)
             }
         }
 
-        var a = new myFn()
+        var a = new MyFn()
 
-        myFn.prototype.method1 = function() {
+        MyFn.prototype.method1 = function() {
             console.log('method1 : ' + this.name)
         }
 

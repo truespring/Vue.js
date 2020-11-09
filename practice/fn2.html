@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function My() {
+            this.age = 30 // this는 window이다
+            console.log(this)
+            // this.name1 = 'hello' // == var name1 = 'hello'
+        }
+        My()
+        var obj1 = My() // 함수 호출
+        // console.log(this.name1)
+        console.log(age) 
+        var age2 = 20
+        console.log(age2)
+
+    </script>
+</body>
+</html>

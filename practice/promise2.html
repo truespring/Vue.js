@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // single thread 비동기 방식의 예
+        function method1() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() { // 오래 걸릴것 같은 함수를 promise로 감싸준다 그후 콜백 함수 사용
+                    resolve(12) // then로 보냄(try와 같음)
+                    reject(10) // 에러 정보를 보냄(catch로 이동) 
+                }, 2000)
+            })
+        }
+        function method2(val) {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve(val + 10)
+                }, 1000)
+            })
+        }
+
+        var a = method1() // promise 객체가 담긴다
+        a.then(function(data) { // resolve에서 보낸 값이 넘어온다(try와 같다)
+            console.log('data : ' + data)
+
+            var b = method2(data)
+            b.then(function(data2) {
+                console.log('data2 : ' + data2)
+                console.log('123123')
+            }) // 콜백지옥
+
+        }).catch(function(err) {
+            console.log('err : ' + err)
+        }).then(function() { // finally와 같음
+            console.log('finally')
+        })
+    </script>
+</body>
+</html>

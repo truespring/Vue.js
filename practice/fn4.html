@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 해결 방법 첫 번째
+        function My() {
+            var that = this
+            this.age = 10;
+
+            this.fn2_1 = function() {
+                return function() {
+                    console.log('fn2_1')
+                    console.log(that)
+                }
+            }
+            this.fn2_2 = function() {
+                return () => {
+                    console.log('fn2_2')
+                    console.log(that)
+                }
+            }
+        }
+
+        var obj = new My()
+
+        var mtd1 = obj.fn2_1()
+        var mtd2 = obj.fn2_2()
+
+        mtd1()
+        mtd2()
+    </script>
+</body>
+</html>

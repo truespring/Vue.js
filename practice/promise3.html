@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function method1() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(12)
+                }, 2000)
+            })
+        }
+        function method2(val) {
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve(val + 10)
+                }, 1000)
+            })
+        }
+
+        async function fn() {
+            var data = await method1() // async가 있는 함수에서만 await 사용가능하고 Promise가 반드시 넘어와야한다
+            console.log('data : ' + data)
+            var data2 = await method2(data)
+            console.log('data2 : ' + data2)
+            console.log('haha')
+            console.log('finally')
+        }
+        fn()
+    </script>
+</body>
+</html>

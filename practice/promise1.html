@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // single thread 비동기 방식의 예
+        function method1() {
+            setTimeout(function() {
+                return 10
+            }, 2000)
+        }
+        function method2(val) {
+            setTimeout(function() {
+                return val + 10
+            }, 1000)
+        }
+
+        var a = method1()
+        console.log(a)
+        var b = method2(a)
+        console.log(b)
+        console.log('123123')
+    </script>
+</body>
+</html>
