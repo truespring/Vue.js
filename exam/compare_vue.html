@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{ msg }}</div>
+        <div><input type="text" v-model="val"></div>
+        <div>
+            <div>{{ val }}</div>
+            <div>{{ val }}</div>
+            <div>{{ val }}</div>
+            <div>{{ val }}</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({ // 객체에 해당
+            el: '#app', // 가장 최상위를 감싸는 아이디
+            data: { // data 변수에는 또다른 객체를 넣는다
+                val: '', // 뷰단에서 사용하고 싶은 변수 선언
+                msg: 'Test'
+            }
+        })
+    </script>
+</body>
+</html>

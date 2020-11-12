@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        #parent {
+            width: 90%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div><input id="val" type="text" onkeyup="input()"></div>
+    <div id="parent">
+        <div id="content1"></div>
+        <div id="content2"></div>
+        <div id="content3"></div>
+        <div id="content4"></div>
+    </div>
+    <div id="parent2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        var obj = {
+            aaa_1: 'hahaha',
+            aaa_2: 'gogogo'
+        }
+        obj.aaa_1 = '123123'
+        obj['aaa_'+'2'] = 'gggg'
+
+        console.log(obj.aaa_1)
+        console.log(obj['aaa_2'])
+
+        function input() {
+            var txt = val.value
+
+            var children = parent2.children
+
+            for(var i = 0; i < children.length; i++) {
+                
+            }
+
+            for(var i = 1; i <= 4; i++) {
+                document.querySelector(`#content${i}`).innerText = txt
+            }
+        }
+    </script>
+</body>
+</html>
